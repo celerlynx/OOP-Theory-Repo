@@ -18,7 +18,6 @@ public class BallPlayer : BasePlayer
             else
                 gameObject.SetActive(false);
 
-            GameManager.Instance.InitMenuButton();
         }
 
     }
@@ -57,9 +56,4 @@ public class BallPlayer : BasePlayer
         return PLAYER_TYPE;
     }
 
-
-    public override string GetRules()
-    {
-        return "The Ball can move left and right by pressing the arrow keys on the keyboard, and jump by pressing the space bar. It should not fall from a height of more than one cube.";
-    }
 }

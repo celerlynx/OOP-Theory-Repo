@@ -15,7 +15,6 @@ public class BalloonPlayer : BasePlayer
             else
                 gameObject.SetActive(false);
 
-            GameManager.Instance.InitMenuButton();
         }
     }
 
@@ -39,9 +38,4 @@ public class BalloonPlayer : BasePlayer
         return PLAYER_TYPE;
     }
 
-
-    public override string GetRules()
-    {
-        return "The Balloon can move by pressing the arrow keys on the keyboard. It must fly around obstacles without touching them.";
-    }
 }
