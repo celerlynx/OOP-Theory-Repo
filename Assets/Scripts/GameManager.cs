@@ -5,6 +5,8 @@ using System.Collections.Generic;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+    public bool isGameActive = true;
+    public bool isWin = false;
     private string _playerType;
 
     private List<string> _plrTypes = new List<string> { 
@@ -16,10 +18,13 @@ public class GameManager : MonoBehaviour
         get { return _playerType; } // getter returns backing field
         set
         {
-            if (_plrTypes.Contains(value))
-                _playerType = value;
-            else
-                _playerType = BalloonPlayer.PLAYER_TYPE;
+            if (_playerType != value || string.IsNullOrEmpty(_playerType))
+            {
+                if (_plrTypes.Contains(value))
+                    _playerType = value;
+                else
+                    _playerType = BalloonPlayer.PLAYER_TYPE;
+            }
 
         } 
     }
@@ -34,7 +39,6 @@ public class GameManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
- 
     }
 
     public string GetPlayerRules()
@@ -48,6 +52,14 @@ public class GameManager : MonoBehaviour
             default:
                 return "";
         }
+    }
+
+    public void GameOver()
+    {
+        isGameActive = false;
+        GameObject canvas = GameObject.Find("Canvas");
+        if (canvas != null)
+            canvas.GetComponent<MenuUI>().ShowGameOver();
     }
 
 }

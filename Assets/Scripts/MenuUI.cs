@@ -11,25 +11,27 @@ public class MenuUI : MonoBehaviour
 {
 
     public TextMeshProUGUI playerRulesText;
-
+    public TextMeshProUGUI gameOverText;
+    
     private void Start()
     {
         if (GameManager.Instance != null)
-            UpdatePlayerTypeInfo();
+        {
+            UpdatePlayerTypeInfo(null);
+        }
     }
 
 
     /**
-    * Set default Player type and update Player rules text
+    * Set default Player type and update Player rules text on the Title screen only
     */
-    private void UpdatePlayerTypeInfo()
+    private void UpdatePlayerTypeInfo(string pType)
     {
-        if (string.IsNullOrEmpty(GameManager.Instance.playerType))
-        {
-            GameManager.Instance.playerType = BalloonPlayer.PLAYER_TYPE;
-        }
         if (playerRulesText != null)
+        {
+            GameManager.Instance.playerType = pType;
             playerRulesText.text = GameManager.Instance.GetPlayerRules();
+        }
     }
 
     //Change Player type radio button value
@@ -37,8 +39,7 @@ public class MenuUI : MonoBehaviour
     {
         if (toggle != null && toggle.isOn && GameManager.Instance != null)
         {
-            GameManager.Instance.playerType = toggle.name;
-            UpdatePlayerTypeInfo();
+            UpdatePlayerTypeInfo(toggle.name);
         }
 
     }
@@ -46,6 +47,8 @@ public class MenuUI : MonoBehaviour
     //Start button click
     public void StartNew()
     {
+        GameManager.Instance.isGameActive = true;
+        GameManager.Instance.isWin = false;
         SceneManager.LoadScene(1);
     }
 
@@ -65,6 +68,15 @@ public class MenuUI : MonoBehaviour
     public void BackToMenu()
     {
         SceneManager.LoadScene(0);
+    }
+
+    public void ShowGameOver()
+    {
+        if (!GameManager.Instance.isGameActive && gameOverText != null)
+        {
+            gameOverText.text = (GameManager.Instance.isWin)? "YOU WON!" : "Game Over";
+            gameOverText.gameObject.SetActive(true);
+        }
     }
 
 }
