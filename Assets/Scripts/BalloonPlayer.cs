@@ -28,14 +28,4 @@ public class BalloonPlayer : BasePlayer
         transform.Translate(speed * Time.deltaTime * _verticalInput * Vector3.up);
     }
 
-    public override void OnCollisionEnter(Collision collision)
-    {
-       
-    }
-
-    public override string GetName()
-    {
-        return PLAYER_TYPE;
-    }
-
 }

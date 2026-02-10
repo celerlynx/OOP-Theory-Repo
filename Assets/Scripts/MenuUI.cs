@@ -12,6 +12,7 @@ public class MenuUI : MonoBehaviour
 
     public TextMeshProUGUI playerRulesText;
     public TextMeshProUGUI gameOverText;
+    public Button restartButton;
     
     private void Start()
     {
@@ -59,7 +60,6 @@ public class MenuUI : MonoBehaviour
 #if UNITY_EDITOR
         EditorApplication.ExitPlaymode();
 #else
-
         Application.Quit();
 #endif
     }
@@ -76,6 +76,8 @@ public class MenuUI : MonoBehaviour
         {
             gameOverText.text = (GameManager.Instance.isWin)? "YOU WON!" : "Game Over";
             gameOverText.gameObject.SetActive(true);
+            if (restartButton != null)
+                restartButton.gameObject.SetActive(true);
         }
     }
 

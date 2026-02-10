@@ -47,13 +47,8 @@ public class BallPlayer : BasePlayer
 
     public override void OnCollisionEnter(Collision collision)
     {
-        // You might want to add a tag/layer check here (e.g., collision.gameObject.CompareTag("Ground"))
+        base.OnCollisionEnter(collision);
         _isGrounded = true;
-    }
-
-    public override string GetName()
-    {
-        return PLAYER_TYPE;
     }
 
 }

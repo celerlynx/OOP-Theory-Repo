@@ -46,9 +46,9 @@ public class GameManager : MonoBehaviour
         switch (_playerType)
         {
             case BalloonPlayer.PLAYER_TYPE:
-                return "The Balloon can move by pressing the arrow keys on the keyboard. It must fly around obstacles without touching them.";
+                return "The Balloon can move up and down by pressing the arrow keys on the keyboard. It must not touch the red obstacles.";
             case BallPlayer.PLAYER_TYPE:
-                return "The Ball can move left and right by pressing the arrow keys on the keyboard, and jump by pressing the space bar. It should not fall from a height of more than one cube.";
+                return "The Ball can move left and right by pressing the arrow keys on the keyboard, and jump by pressing the space bar. It must not touch the red obstacles.";
             default:
                 return "";
         }

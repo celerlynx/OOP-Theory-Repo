@@ -30,18 +30,11 @@ public abstract class BasePlayer : MonoBehaviour
     // Use OnCollisionEnter to detect when the character hits the ground
     public virtual void OnCollisionEnter(Collision collision)
     {
-
-    }
-
-    public virtual string GetName()
-    {
-        return "Player";
-    }
-
-
-    public virtual string GetRules()
-    {
-        return "Rules";
+        if (collision.gameObject.CompareTag("Deadly"))
+        {
+            Destroy(gameObject);
+            GameManager.Instance.GameOver();
+        }
     }
 
     void Update()
