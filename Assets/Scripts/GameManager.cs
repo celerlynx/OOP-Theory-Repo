@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
         BalloonPlayer.PLAYER_TYPE, 
         BallPlayer.PLAYER_TYPE 
     };
+
+    //ENCAPSULATION
     public string playerType
     {
         get { return _playerType; } // getter returns backing field
@@ -20,10 +22,7 @@ public class GameManager : MonoBehaviour
         {
             if (_playerType != value || string.IsNullOrEmpty(_playerType))
             {
-                if (_plrTypes.Contains(value))
-                    _playerType = value;
-                else
-                    _playerType = BalloonPlayer.PLAYER_TYPE;
+                _playerType = _plrTypes.Contains(value)? value : _plrTypes[0];
             }
 
         } 
@@ -54,6 +53,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    //ABSTRACTION
     public void GameOver()
     {
         isGameActive = false;

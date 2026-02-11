@@ -6,6 +6,8 @@ public abstract class BasePlayer : MonoBehaviour
     private float _speed = 2f;
     private Vector3 _curPos;
     private float _bound = 17f;
+
+    //ENCAPSULATION
     public float speed
     {
         get { return _speed; } // getter returns backing field
@@ -37,7 +39,7 @@ public abstract class BasePlayer : MonoBehaviour
         }
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (GameManager.Instance != null && GameManager.Instance.isGameActive)
         {

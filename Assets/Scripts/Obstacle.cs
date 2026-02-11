@@ -15,8 +15,6 @@ public class Obstacle : MonoBehaviour
         _newY = Mathf.PingPong(Time.time * _speed, _height) + _startY;
         foreach (var item in flyingObstacles)
         {
-            
-
             // Set the object's new position, maintaining its original X and Z
             item.transform.position = new Vector3(item.transform.position.x, _newY, item.transform.position.z);
         }

@@ -13,39 +13,37 @@ public class MenuUI : MonoBehaviour
     public TextMeshProUGUI playerRulesText;
     public TextMeshProUGUI gameOverText;
     public Button restartButton;
-    
-    private void Start()
-    {
-        if (GameManager.Instance != null)
-        {
-            UpdatePlayerTypeInfo(null);
-        }
-    }
 
 
+    //ABSTRACTION
     /**
     * Set default Player type and update Player rules text on the Title screen only
     */
     private void UpdatePlayerTypeInfo(string pType)
     {
-        if (playerRulesText != null)
+        if (playerRulesText != null && GameManager.Instance != null)
         {
             GameManager.Instance.playerType = pType;
             playerRulesText.text = GameManager.Instance.GetPlayerRules();
         }
     }
 
+    private void Start()
+    {
+        UpdatePlayerTypeInfo(null);
+    }
+    
     //Change Player type radio button value
     public void SelectPlayer(Toggle toggle)
     {
-        if (toggle != null && toggle.isOn && GameManager.Instance != null)
+        if (toggle != null && toggle.isOn)
         {
             UpdatePlayerTypeInfo(toggle.name);
         }
 
     }
 
-    //Start button click
+    //Start/Restart button click
     public void StartNew()
     {
         GameManager.Instance.isGameActive = true;

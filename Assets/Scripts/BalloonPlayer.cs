@@ -1,5 +1,6 @@
 using UnityEngine;
 
+//INHERITANCE
 public class BalloonPlayer : BasePlayer
 {
     private float _verticalInput;
@@ -10,14 +11,11 @@ public class BalloonPlayer : BasePlayer
     {
         if (GameManager.Instance != null)
         {
-            if (GameManager.Instance.playerType == PLAYER_TYPE)
-                gameObject.SetActive(true);
-            else
-                gameObject.SetActive(false);
-
+            gameObject.SetActive(GameManager.Instance.playerType == PLAYER_TYPE);
         }
     }
 
+    //POLYMORPHISM
     public override void Move()
     {
         // get the user's vertical input
