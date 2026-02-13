@@ -176,7 +176,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Player Rules:'
+  m_text: 'Player rules:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -709,7 +709,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Choose the player:'
+  m_text: 'Select your player:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1469,6 +1469,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28130545b4146a447891333e18d44a93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  isGameActive: 1
+  isWin: 0
 --- !u!4 &1183988246
 Transform:
   m_ObjectHideFlags: 0
@@ -1860,6 +1862,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MenuUI
   playerRulesText: {fileID: 739927488}
+  gameOverText: {fileID: 0}
+  restartButton: {fileID: 0}
 --- !u!1 &1937123358
 GameObject:
   m_ObjectHideFlags: 0
